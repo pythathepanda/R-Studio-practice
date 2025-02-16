@@ -300,3 +300,67 @@ Specify an order for factor levels.
 #Ordered factors
 levels = factor(c("Low","Medium","High"),levels = c("Low","Medium","High"),ordered = TRUE)
 print(levels)
+
+
+###4.Lists###
+"""
+Creating Lists
+Combine multiple data types into a list
+"""
+#List creation
+my_list = list(
+  vector = c(1,2,3),
+  matrix = matrix(1:4, nrow = 2),
+  char = "Hello"
+)
+print(my_list)
+print(my_list[3])
+
+###5.Data Frames###
+"""
+Manual Creation
+Create data frames from vectors.
+"""
+#Data frame creation
+name = c("Kane","Jane","David")
+age = c(23,33,34)
+marks = c(89,78,88)
+df = data.frame(name, age, marks)
+print(df)
+
+#Accessing Columns
+#Access columns using [] and $
+print(df$name)
+print(df["name"])
+
+#Indexing and Slicing
+#Access specific rows and columns
+print(df[1,1])
+print(df[1:2,])
+
+#Modifying Data Frames
+#Change elements, add and remove columns
+#Modifying data frames
+df$grade = ifelse(df$marks > 80, "A","B")
+print(df)
+
+#Boolean Masking
+#Filter rows based on conditions
+filtered_df = df[df$marks > 80,]
+filtered_df
+
+#Data Frame Functions
+#Exploring head(), tail(), dim(), nrow(), ncol(), colnames(), rownames(), rowSums(), colSums(), rowMeans(), colMeans(), summary(), and str().
+print(head(df))
+print(tail(df))
+print(dim(df))
+print(nrow(df))
+print(ncol(df))
+print(colnames(df))
+print(rownames(df))
+print(rowSums(df[, c("age", "marks")]))
+print(colSums(df[, c("age", "marks")]))
+print(rowMeans(df[, c("age", "marks")]))
+print(colMeans(df[, c("age", "marks")]))
+print(summary(df))
+print(str(df))
