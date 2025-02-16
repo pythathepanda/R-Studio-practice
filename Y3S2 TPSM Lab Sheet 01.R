@@ -226,9 +226,77 @@ print(summary(matrix2))
 #Merging Matrices
 #Combine matrices using cbind() and rbind()
 matrix1 = matrix(1:4, nrow = 2)
+print(matrix1)
 matrix2 = matrix(5:8, nrow = 2)
+print(matrix2)
 
 horizontal_merge = cbind(matrix1, matrix2)
 print(horizontal_merge)
 vertical_merge = rbind(matrix1, matrix2)
 print(vertical_merge)
+
+#Matrix Indexing and Operations
+#Access rows, columns, and perform matrix arithmetic.
+# Matrix indexing
+matrix1 = matrix(1:9, nrow = 3)
+print(matrix1)
+print(matrix1[1,]) #Prints the 1st row
+print(matrix1[,2]) #Prints the 2nd col
+print(matrix1[1:2,2:3])
+print(matrix1[2:3,1:2])
+print(matrix1[1:3,1:3])
+print(matrix1[1:2,1:2])
+
+# Matrix operations
+matrix1 = matrix(c(1,2,3,4), nrow = 2)
+print(matrix1)
+matrix2 = matrix(c(5,6,7,8), nrow = 2)
+print(matrix2)
+
+matrix_addition = matrix1 + matrix2
+print(matrix_addition)
+
+matrix_subtraction = matrix1 - matrix2
+print(matrix_subtraction)
+
+matrix_multiplication =matrix1 * matrix2 #Elementwise
+print(matrix_multiplication)
+
+matrix_dot_product = matrix1 %*% matrix2 #Matrix multiplication
+print(matrix_dot_product)
+
+matrix_transpose = t(matrix1)
+print(matrix_transpose)
+
+#Advanced Matrix Operations
+#Calculate determinants, inverse, and diagonal elements
+# Determinants and inverse
+
+matrix3 = matrix(c(4,7,2,6),nrow = 2)
+matrix3
+det_value = det(matrix3)
+det_value
+
+inverse_matrix = solve(matrix3)
+inverse_matrix
+
+#Diagonal elements
+diag_elements = diag(matrix3)
+print(diag_elements)
+
+###3.Factors###
+"""
+Unordered Factors
+Convert categorical data into factors
+"""
+#Unordered factors
+gender = factor(c("Male","Female","Male"))
+gender
+
+"""
+Ordered Factors
+Specify an order for factor levels.
+"""
+#Ordered factors
+levels = factor(c("Low","Medium","High"),levels = c("Low","Medium","High"),ordered = TRUE)
+print(levels)
