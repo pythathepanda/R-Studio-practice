@@ -321,46 +321,57 @@ print(my_list[3])
 Manual Creation
 Create data frames from vectors.
 """
-#Data frame creation
 name = c("Kane","Jane","David")
 age = c(23,33,34)
 marks = c(89,78,88)
-df = data.frame(name, age, marks)
+df = data.frame(name,age,marks)
 print(df)
 
-#Accessing Columns
-#Access columns using [] and $
-print(df$name)
+#Prints the "name" column
 print(df["name"])
+print(df$name)
 
-#Indexing and Slicing
-#Access specific rows and columns
+#Prints the item in the 1st row and 1st column
 print(df[1,1])
-print(df[1:2,])
 
-#Modifying Data Frames
-#Change elements, add and remove columns
-#Modifying data frames
-df$grade = ifelse(df$marks > 80, "A","B")
+df$grade = ifelse(df$marks > 80, "A", "B")
 print(df)
 
-#Boolean Masking
-#Filter rows based on conditions
+#Boolean masking
 filtered_df = df[df$marks > 80,]
-filtered_df
+print(filtered_df)
 
-#Data Frame Functions
-#Exploring head(), tail(), dim(), nrow(), ncol(), colnames(), rownames(), rowSums(), colSums(), rowMeans(), colMeans(), summary(), and str().
-print(head(df))
-print(tail(df))
-print(dim(df))
-print(nrow(df))
-print(ncol(df))
+name_filtered_df = df[df$marks > 80, 1]
+print(name_filtered_df)
+
+df_1=df[df$marks>80 & df$age<25, ]
+print(df_1)
+
+df_2=df[df$marks>80 & df$age<25, 1]
+print(df_2)
+
 print(colnames(df))
 print(rownames(df))
-print(rowSums(df[, c("age", "marks")]))
-print(colSums(df[, c("age", "marks")]))
-print(rowMeans(df[, c("age", "marks")]))
-print(colMeans(df[, c("age", "marks")]))
+
+print(rowSums(df[ ,c("age","marks")]))
+print(colSums(df[ ,c("age","marks")]))
+print(rowMeans(df[ ,c("age","marks")]))
+print(colMeans(df[ ,c("age","marks")]))
+
 print(summary(df))
+
 print(str(df))
+
+df$new_column=df$marks * 2
+print(df)
+
+colnames(df)[colnames(df)=="marks"]="score"
+print(colnames(df))
+
+#Apply function
+df$scaled_marks = scale(df$score)
+print(df)
+
+#Apply
+df$Avg_score=apply(df[,c("age","score")],1,mean)
+df
